@@ -1,0 +1,4 @@
+github.com/JobinAj/golang-modularizartion-learning v0.0.0-20251029014110-9dbab939ce63 h1:hoMS5ee8AMpcf/aCb5V0urQkQJPfKbciRXrSWnZZjAw=
+github.com/JobinAj/golang-modularizartion-learning v0.0.0-20251029014110-9dbab939ce63/go.mod h1:k9AZE3DSGtULw2uyqFvu/WDn6KzbH2w2j7aBUGoiIzI=
+github.com/JobinAj/transitive-dependency v0.0.0-20251029005034-b954cc887845 h1:HOAgm+xI6Oue84x4XlaR9VNQ/RzIRRztbNN2coU5YCk=
+github.com/JobinAj/transitive-dependency v0.0.0-20251029005034-b954cc887845/go.mod h1:4su9oRTht0tW+ikqVW7Wg2PW/SpSuNddxjzehWoxwGY=

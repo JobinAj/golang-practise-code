@@ -1,0 +1,12 @@
+package main
+
+import (
+     "fmt"
+     "time"
+    )
+
+func main(){
+	Current_time:=time.Now()
+	fmt.printf("hello world the time is %d",Current_time)
+}
+
