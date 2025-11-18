@@ -5,6 +5,10 @@ import (
 	"math/rand"
 )
 
+func init() {
+	println("this is a naladic function")
+}
+
 func main() {
 	ch := make(chan int)
 	x := rand.Intn(300)
