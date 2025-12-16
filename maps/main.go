@@ -19,4 +19,15 @@ func main() {
 	fmt.Println(timemachinevalues["i don't know the values actually that's why i'm using make😅"])
 	fmt.Println(timemachinevalues["i don't know the values actually that's why i'm using make i don't know second thing also😅😅"])
 
+	people["albert"] = 59
+	people["jyothi"] = 51
+
+	fmt.Println(people)
+
+	for k, v := range people {
+		fmt.Println(k, v)
+	}
+	for k, _ := range people {
+		fmt.Println(k)
+	}
 }
