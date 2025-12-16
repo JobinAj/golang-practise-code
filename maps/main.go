@@ -30,4 +30,16 @@ func main() {
 	for k, _ := range people {
 		fmt.Println(k)
 	}
+	//this is comma ok idiom
+	// v, ok := people["jobinaj"]
+	// if ok {
+	// 	fmt.Println(v)
+	// } else {
+	// 	fmt.Println("the value doesn't exist")
+	// }
+	if v, ok := people["alvin aj"]; !ok {
+		fmt.Println("the value did'nt exist")
+	} else {
+		fmt.Println(v)
+	}
 }
