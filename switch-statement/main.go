@@ -12,8 +12,9 @@ func main() {
 	switch x {
 	case 43:
 		fmt.Println("x is 43")
+		fallthrough
 	case 44:
-		fmt.Println("x is 44")
+		fmt.Println("printed next value because of fallthrough x is 44")
 	case 45:
 		fmt.Println("x is 45")
 	case 40:
