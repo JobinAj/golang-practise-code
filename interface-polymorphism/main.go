@@ -14,6 +14,7 @@ type human struct {
 	Name string
 }
 
+// here we saying that human can speak by adding the method speak from the speacker interface
 func (h human) speak() string {
 	return "my name is " + h.Name
 }
