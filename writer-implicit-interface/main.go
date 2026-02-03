@@ -19,7 +19,7 @@ func (p person) writeOut(w io.Writer) {
 
 func main() {
 	p := person{
-		first: "jobin",
+		first: "jobinaj",
 	}
 	f, err := os.Create("output.txt")
 	if err != nil {
