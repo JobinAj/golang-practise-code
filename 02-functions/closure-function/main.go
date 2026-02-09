@@ -13,7 +13,7 @@ func main() {
 	fmt.Println(f()) //7
 }
 
-func incrementor() func() int {
+func incrementor() func() int { //this is called closure function because the value x decalred in the incrementor stays alive and gets incremented when used in the inner function
 	x := 0
 	return func() int {
 		x++
