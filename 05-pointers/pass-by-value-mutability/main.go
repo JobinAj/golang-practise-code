@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // pointer referance type
 func DeltaInt(n *int) {
@@ -10,6 +12,11 @@ func DeltaInt(n *int) {
 // slice referance type
 func DeltaSlice(n []int) {
 	n[0] = 99
+}
+
+// map referance type
+func DeltaMap(md map[string]int, nextyear string) {
+	md[nextyear] = 23
 }
 
 func main() {
@@ -25,4 +32,10 @@ func main() {
 	DeltaSlice(xi)
 	fmt.Println(xi)
 
+	//passing value to the map referance type
+	m := make(map[string]int)
+	m["jobin"] = 22
+	fmt.Println(m["jobin"])
+	DeltaMap(m, "jobin")
+	println(m["jobin"])
 }
