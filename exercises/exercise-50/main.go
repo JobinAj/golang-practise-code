@@ -38,7 +38,7 @@ func main() {
 
 //just for fun changing the name
 
-func (d dog) changename(s string) dog {
+func (d dog) changename(s string) dog { // here when we do d2.changename we pass d2 to the d  now a new varible of same type dog has the copy of the value stored in d2 now we did d.firstname=s so we just passed rover so now the value changed to rover and now we have to return d so that when we call d2 the value should be changed.
 	d.firstname = s
 	return d
 }
