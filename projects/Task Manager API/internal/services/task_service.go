@@ -19,3 +19,13 @@ func CreateTask(title string) models.Task {
 func GetTasks() []models.Task {
 	return storage.Tasks
 }
+
+func DeleteTasks(id int) bool {
+	for i, task := range storage.Tasks {
+		if task.ID == id {
+			storage.Tasks = append(storage.Tasks[:i], storage.Tasks[i+1:]...)
+			return true
+		}
+	}
+	return false
+}

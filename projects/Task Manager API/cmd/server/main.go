@@ -20,6 +20,13 @@ func main() {
 			http.Error(w, "Method Not allowed", http.StatusMethodNotAllowed)
 		}
 	})
+	http.HandleFunc("/tasks/", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodDelete {
+			handlers.DeleteTasksHandler(w, r)
+			return
+		}
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+	})
 
 	//Listen on port 8000
 	if err := http.ListenAndServe(":8000", nil); err != nil {
