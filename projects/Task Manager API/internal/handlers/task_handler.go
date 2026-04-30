@@ -12,6 +12,10 @@ type CreateTaskRequest struct {
 	Title string `json:"title"`
 }
 
+type UpdateTaskRequest struct {
+	Title string `json:"title"`
+}
+
 // POST task
 func CreateTaskHandler(w http.ResponseWriter, r *http.Request) { // this is the signature for go http handler
 	var req CreateTaskRequest
@@ -27,7 +31,7 @@ func CreateTaskHandler(w http.ResponseWriter, r *http.Request) { // this is the 
 
 // GET task
 func GetTasksHandler(w http.ResponseWriter, r *http.Request) {
-	tasks := services.GetTasks()
+	tasks := services.GetTask()
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(tasks)
 }
@@ -42,10 +46,35 @@ func DeleteTasksHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "invalid ID", http.StatusBadRequest)
 		return
 	}
-	ok := services.DeleteTasks(id)
+	ok := services.DeleteTask(id)
 	if !ok {
 		http.Error(w, "Task not found", http.StatusNotFound)
 		return
 	}
 	w.Write([]byte("Task deleted"))
+}
+
+//UPDATE Task
+
+func UpdateTasksHandler(w http.ResponseWriter, r *http.Request) {
+	var req UpdateTaskRequest
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		http.Error(w, "invalid Request", http.StatusBadRequest)
+		return
+	}
+	parts := strings.Split(r.URL.Path, "/")
+	idstr := parts[len(parts)-1]
+	id, err := strconv.Atoi(idstr)
+	if err != nil {
+		http.Error(w, "invalid ID", http.StatusBadRequest)
+		return
+	}
+
+	task, ok := services.UpdateTask(id, req.Title)
+	if !ok {
+		http.Error(w, "Task not found", http.StatusBadRequest)
+		return
+	}
+	json.NewEncoder(w).Encode(task)
 }

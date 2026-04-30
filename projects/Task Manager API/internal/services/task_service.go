@@ -16,11 +16,11 @@ func CreateTask(title string) models.Task {
 	return task
 }
 
-func GetTasks() []models.Task {
+func GetTask() []models.Task {
 	return storage.Tasks
 }
 
-func DeleteTasks(id int) bool {
+func DeleteTask(id int) bool {
 	for i, task := range storage.Tasks {
 		if task.ID == id {
 			storage.Tasks = append(storage.Tasks[:i], storage.Tasks[i+1:]...)
@@ -28,4 +28,14 @@ func DeleteTasks(id int) bool {
 		}
 	}
 	return false
+}
+
+func UpdateTask(id int, title string) (models.Task, bool) {
+	for i, task := range storage.Tasks {
+		if task.ID == id {
+			storage.Tasks[i].Title = title
+			return storage.Tasks[i], true
+		}
+	}
+	return models.Task{}, false
 }

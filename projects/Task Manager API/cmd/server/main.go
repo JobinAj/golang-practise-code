@@ -7,25 +7,35 @@ import (
 )
 
 func main() {
-	fmt.Println("Server starting on port 8000...")
-	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("server started on 8000")
+
+	//HELTH ENDPOINT
+	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("OK"))
 	})
+
+	// GET AND POST METHODS
 	http.HandleFunc("/tasks", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method == http.MethodPost {
+		switch r.Method {
+		case http.MethodPost:
 			handlers.CreateTaskHandler(w, r)
-		} else if r.Method == http.MethodGet {
+		case http.MethodGet:
 			handlers.GetTasksHandler(w, r)
-		} else {
-			http.Error(w, "Method Not allowed", http.StatusMethodNotAllowed)
+		default:
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
+
+	// DELETE AND UPDATE METHODS
 	http.HandleFunc("/tasks/", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method == http.MethodDelete {
+		switch r.Method {
+		case http.MethodDelete:
 			handlers.DeleteTasksHandler(w, r)
-			return
+		case http.MethodPut:
+			handlers.UpdateTasksHandler(w, r)
+		default:
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		}
-		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 	})
 
 	//Listen on port 8000
