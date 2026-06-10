@@ -5,18 +5,15 @@ import (
 	"sort"
 )
 
-func main() {
-	xi := []int{4, 7, 3, 42, 99, 18, 16, 56, 12}
-	xs := []string{"James", "Q", "M", "Moneypenny", "Dr. No"}
-	fmt.Println("\n xi")
-	fmt.Println(xi)
-	fmt.Println("\n xs")
-	fmt.Println(xs)
-	fmt.Println("\n xi")
-	sort.Ints(xi)
-	fmt.Println(xi)
-	fmt.Println("\n xi")
-	sort.Strings(xs)
-	fmt.Println(xs)
-
+func main(){
+xi:=[]int{4,7,3,42,99,18,56,12}
+xs:=[]string{"james","Q","Moneypenny","Dr. No"}
+fmt.Println(xi)
+fmt.Println(xs)
+sort.Ints(xi)
+fmt.Printf("used the standard library to print the sorted slice of integer:%v\n",xi)
+sort.Strings(xs)
+fmt.Printf("used the standard library to print the sorted slice of string:%s",xs)
 }
+
+
