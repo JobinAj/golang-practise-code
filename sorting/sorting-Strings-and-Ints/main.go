@@ -15,5 +15,3 @@ fmt.Printf("used the standard library to print the sorted slice of integer:%v\n"
 sort.Strings(xs)
 fmt.Printf("used the standard library to print the sorted slice of string:%s",xs)
 }
-
-

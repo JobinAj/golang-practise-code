@@ -1,0 +1,25 @@
+servers:
+  - name: master
+    host: 115.246.211.179
+    user:  sirpiserver2
+    port: 61002
+    pass_entry: localserver/sirpiserver2
+  - name: node1
+    host: 115.246.211.179
+    user: sirpiserver1
+    port: 61001
+    pass_entry: localserver/sirpiserver1
+  - name: node2
+    host: 115.246.211.179
+    user: sirpi-gpu-server
+    port: 61003
+    pass_entry: localserver/sirpi-gpu-server
+  - name: node3
+    host: 115.246.211.179
+    user: devops
+    pass_entry: localserver/delloptiplex
+  - name: node4
+    host: 115.246.211.179
+    user: root
+    port: 61004
+    pass_entry: localserver/sirpiserver4
